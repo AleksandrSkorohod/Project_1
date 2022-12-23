@@ -1,42 +1,43 @@
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
+
+
+function showText(text) {
+    console.log(text);
+    let num = 20;
+}
+
+showText('привет сабака');
+console.log(num);
+
+function calc(a, b) {
+    return (a + b);
+}
+
+console.log(calc(12, 18));
+console.log(calc(14, 158));
+console.log(calc(1254, 1228));
+
+
+function net () {
+    num = 35;
+
+    //какие то вычисления
+    //многа многа вычислений..
+    return num;
+}
+
+const newNum = net();
+console.log(newNum);
+
+const logger = function() {
+    console.log('hello');
 };
 
-// const a = prompt('один из последних просмотренных фильмов?', '');
-// const b = +prompt('на сколько вы его оцениваете?', '');
-// const c = prompt('один из последних просмотренных фильмов?', '');
-// const d = +prompt('на сколько вы его оцениваете?', '');
+logger();
 
-
-// personalMovieDB.movies[c] = d;
-
-for (let i = 0; i < 2; i++) {
-    const a = prompt('один из последних просмотренных фильмов?', ''),
-        b = prompt('на сколько вы его оцениваете?', '');
-
-    if (a != null && b != null && a != '' && b != '' && a.length <50) {
-        personalMovieDB.movies[a] = b;
-        
-    } else {
-        alert('ебать, ты дэбил');
-        i--;
-    }
-    
+const strFun = (a, b) => {
+    console.log('go to hell');
+    return a + b;
 }
 
-if (personalMovieDB.count < 10) {
-    alert('чот слишком мало');
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-    alert('нууу, такое сабе');
-} else if (personalMovieDB.count >= 30) {
-    alert('хоть что то в тебе хорошее');
-} else {
-    alert('чот ты дэбил не то вводишь.');
-}
-console.log(personalMovieDB);
+console.log(strFun(12, 34));
