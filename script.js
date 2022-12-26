@@ -1,30 +1,72 @@
+let numberOfFilms;
 
 
-// const text = 'падла дурны, сабака пъяная';
-const arr = [2, 4, 2, 7]
+
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    while (numberOfFilms == null || numberOfFilms == '' || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    }
+
+}
+
+start();
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    private: false
+
+};
+
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Один из последних фильмов которые вы посмотрели?', ''),
+            b = prompt('на сколько вы его оцените?', '');
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+        }
+        else {
+            alert('ну ты и олень');
+            i--;
+        }
+    }
+
+}
+rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log('чот маловато');
+    }
+    else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('ну, таакое себе');
+    }
+    else if (personalMovieDB.count >= 30) {
+        console.log('нармул');
+    }
+    else {
+        console.log('ошибка ёпто');
+    }
+}
+detectPersonalLevel();
 
 
-console.log(text.length);    // обращение к свойству, через точку, без скобок
-console.log(text[2]);        // можно обратиться к строке по индексу
+function showMyDB() {
+    if (personalMovieDB.private == false) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB();
 
 
-console.log(text.indexOf('са'));   // с какого индекса начинается кусок строки
-console.log(text);
+function writeYouGenres() {
+    for (let i = 1; i <= 3 ; i++) {
+        const genre = prompt(`ваш любимый жанр под номерм ${i}`);
+        personalMovieDB.genres[i - 1] = genre;
+    }
+}
 
-
-const text = 'падла дурны, сабака пъяная';
-
-
-console.log(text.slice(-6));    // срез, по индексу.
-console.log(text);
-
-console.log(text.substring(6, 11));   //неподдерживает отрицательные значения индексов
-
-const num = 12.3;
-
-console.log(Math.round(num));   //округление
-
-const test = '15.65px';
-
-console.log(parseInt(test));   //строку в числовой в целое число
-console.log(parseFloat(test));    //строку в числовой в дробное
+writeYouGenres()
