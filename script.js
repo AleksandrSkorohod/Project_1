@@ -80,3 +80,6 @@ const personalMovieDB = {
         }
     }
 };
+
+personalMovieDB.start();
+personalMovieDB.rememberMyFilms();
